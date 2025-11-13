@@ -6,14 +6,14 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#f4f4f4; }
     header { background:#1a1a1a; color:white; padding:1rem; position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; z-index:100; }
     nav a { color:white; margin-left:1rem; text-decoration:none; transition:color 0.3s; }
     nav a:hover { color:#00bfff; }
     section { padding:3rem 1rem; max-width:1000px; margin:auto; }
     h2 { text-align:center; margin-bottom:2rem; }
     .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-    .project-container { display:flex; flex-direction:column; background:#f9f9f9; border-radius:10px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .project-container { display:flex; flex-direction:column; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
     .project-container:hover { transform:translateY(-5px); box-shadow:0 8px 12px rgba(0,0,0,0.2); }
     .project-image { width:100%; height:180px; object-fit:cover; }
     .project-info { padding:1rem; }
@@ -24,10 +24,17 @@
     button { padding:0.8rem; border:none; border-radius:5px; background:#1a73e8; color:white; cursor:pointer; transition:background 0.3s; }
     button:hover { background:#155ab6; }
     footer { background:#1a1a1a; color:white; text-align:center; padding:1rem; margin-top:2rem; }
-    .skills, .certifications, .languages { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
-    .skill-bar { flex:1 1 200px; background:#ddd; border-radius:5px; overflow:hidden; }
-    .skill-fill { height:20px; background:#1a73e8; text-align:right; color:white; padding-right:5px; line-height:20px; }
-    .certifications div, .languages div { background:#f1f1f1; padding:0.5rem 1rem; border-radius:5px; flex:1 1 200px; }
+
+    /* Skills */
+    .skills-grid { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+    .skill-card { background:#fff; padding:1rem; border-radius:10px; min-width:180px; box-shadow:0 4px 6px rgba(0,0,0,0.1); }
+    .skill-bar { background:#ddd; border-radius:5px; overflow:hidden; height:20px; margin-top:5px; }
+    .skill-fill { height:100%; background:#1a73e8; width:0; text-align:right; color:white; padding-right:5px; line-height:20px; transition:width 1.5s ease-in-out; }
+
+    /* Certifications & Languages */
+    .certifications, .languages { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+    .certifications div, .languages div { background:#fff; padding:0.5rem 1rem; border-radius:5px; box-shadow:0 4px 6px rgba(0,0,0,0.1); }
+    
     @media(max-width:600px){ .projects { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -61,7 +68,6 @@
         <a href="https://github.com/LUTHFI007/DroneFaultDetection-Hackathon" target="_blank">View on GitHub</a>
       </div>
     </div>
-
     <div class="project-container">
       <img src="./images/biscuit.png" alt="Biscuit Production Optimization" class="project-image">
       <div class="project-info">
@@ -70,7 +76,6 @@
         <a href="https://github.com/codes-by-sethu/Optimization-of-Biscuit-Production" target="_blank">View on GitHub</a>
       </div>
     </div>
-
     <div class="project-container">
       <img src="./images/creditcard.jpg" alt="Credit Card Fraud Detection" class="project-image">
       <div class="project-info">
@@ -79,7 +84,6 @@
         <a href="https://github.com/codes-by-sethu/Credit-Card-Fraud-Detection" target="_blank">View on GitHub</a>
       </div>
     </div>
-
     <div class="project-container">
       <img src="./images/path.jpg" alt="Logistics Path Optimization" class="project-image">
       <div class="project-info">
@@ -88,7 +92,6 @@
         <a href="https://github.com/codes-by-sethu/Path_Optimization_using_AI" target="_blank">View on GitHub</a>
       </div>
     </div>
-
     <div class="project-container">
       <img src="./images/OLX-CLONE.jpg" alt="OLX Clone" class="project-image">
       <div class="project-info">
@@ -103,76 +106,17 @@
 <section id="skills">
   <h2>Skills</h2>
   <div class="skills-grid">
-
-    <!-- Programming -->
-    <div class="skill-card">
-      <div class="skill-icon">🐍</div>
-      <h4>Python</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">🖥️</div>
-      <h4>Node.js</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">☕</div>
-      <h4>Java</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">🐱‍💻</div>
-      <h4>C++</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div>
-    </div>
-
-    <!-- AI & ML -->
-    <div class="skill-card">
-      <div class="skill-icon">🤖</div>
-      <h4>Machine Learning</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">🧠</div>
-      <h4>Neural Networks</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">📊</div>
-      <h4>Data Engineering</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">☁️</div>
-      <h4>Cloud & APIs</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
-    </div>
-
-    <!-- Tools -->
-    <div class="skill-card">
-      <div class="skill-icon">🐙</div>
-      <h4>Git</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">📦</div>
-      <h4>Docker</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">📈</div>
-      <h4>Excel & A/B Testing</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
-    </div>
-
+    <div class="skill-card"><h4>Python</h4><div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div></div>
+    <div class="skill-card"><h4>Node.js</h4><div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div></div>
+    <div class="skill-card"><h4>Java</h4><div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div></div>
+    <div class="skill-card"><h4>C++</h4><div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div></div>
+    <div class="skill-card"><h4>Machine Learning</h4><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+    <div class="skill-card"><h4>Neural Networks</h4><div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div></div>
+    <div class="skill-card"><h4>Data Engineering</h4><div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div></div>
+    <div class="skill-card"><h4>Cloud & APIs</h4><div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div></div>
+    <div class="skill-card"><h4>Git</h4><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+    <div class="skill-card"><h4>Docker</h4><div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div></div>
+    <div class="skill-card"><h4>Excel & A/B Testing</h4><div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div></div>
   </div>
 </section>
 
@@ -197,7 +141,6 @@
   </div>
 </section>
 
-
 <section id="contact">
   <h2>Contact Me</h2>
   <form class="contact-form">
@@ -212,6 +155,14 @@
   <p>&copy; 2025 Sethulakshmi. All rights reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  // Animate skill bars
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.skill-fill').forEach(el => {
+      el.style.width = el.getAttribute('data-width');
+    });
+  });
+</script>
+
 </body>
 </html>
