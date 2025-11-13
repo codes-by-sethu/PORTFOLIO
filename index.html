@@ -1,90 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
+    header { background:#1a1a1a; color:white; padding:1rem; position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; z-index:100; }
+    nav a { color:white; margin-left:1rem; text-decoration:none; transition:color 0.3s; }
+    nav a:hover { color:#00bfff; }
+    section { padding:3rem 1rem; max-width:1000px; margin:auto; }
+    h2 { text-align:center; margin-bottom:2rem; }
+    .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+    .project-container { display:flex; flex-direction:column; background:#f9f9f9; border-radius:10px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .project-container:hover { transform:translateY(-5px); box-shadow:0 8px 12px rgba(0,0,0,0.2); }
+    .project-image { width:100%; height:180px; object-fit:cover; }
+    .project-info { padding:1rem; }
+    .project-info a { display:inline-block; margin-top:0.5rem; color:#1a73e8; text-decoration:none; }
+    .project-info a:hover { text-decoration:underline; }
+    .contact-form { display:flex; flex-direction:column; gap:1rem; max-width:500px; margin:auto; }
+    input, textarea { padding:0.8rem; border-radius:5px; border:1px solid #ccc; }
+    button { padding:0.8rem; border:none; border-radius:5px; background:#1a73e8; color:white; cursor:pointer; transition:background 0.3s; }
+    button:hover { background:#155ab6; }
+    footer { background:#1a1a1a; color:white; text-align:center; padding:1rem; margin-top:2rem; }
+    .skills, .certifications, .languages { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
+    .skill-bar { flex:1 1 200px; background:#ddd; border-radius:5px; overflow:hidden; }
+    .skill-fill { height:20px; background:#1a73e8; text-align:right; color:white; padding-right:5px; line-height:20px; }
+    .certifications div, .languages div { background:#f1f1f1; padding:0.5rem 1rem; border-radius:5px; flex:1 1 200px; }
+    @media(max-width:600px){ .projects { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>My Portfolio</h1>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <h1>Sethulakshmi</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#languages">Languages</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm Sethulakshmi, a data and AI enthusiast with experience in machine learning, data analytics, and AI-driven projects. I enjoy building real-world solutions in finance, logistics, healthcare, and generative AI.</p>
-    <p>Skills: Python, Machine Learning, AI, Data Engineering, Web Development</p>
+  <h2>About Me</h2>
+  <p>Hello! I'm Sethulakshmi, a data and AI enthusiast with experience in machine learning, data analytics, and AI-driven projects. I enjoy building real-world solutions in finance, logistics, healthcare, and generative AI.</p>
 </section>
 
 <section id="projects">
-    <h2>Projects</h2>
-
+  <h2>Projects</h2>
+  <div class="projects">
     <div class="project-container">
-        <img src="images/Drone.jpg" alt="Drone Health Guard" class="project-image">
-        <div class="project-info">
-            <h3>Drone Health Guard</h3>
-            <p>AI-powered predictive maintenance system for drones, detecting faults before failure and optimizing operations. Technologies used: Python, Random Forest, Sensor Analytics.</p>
-            <a href="https://github.com/LUTHFI007/DroneFaultDetection-Hackathon" target="_blank">View on GitHub</a>
-        </div>
+      <img src="./images/Drone.jpg" alt="Drone Health Guard" class="project-image">
+      <div class="project-info">
+        <h3>Drone Health Guard</h3>
+        <p>AI-powered predictive maintenance system for drones, detecting faults before failure. Python, Random Forest, Sensor Analytics.</p>
+        <a href="https://github.com/LUTHFI007/DroneFaultDetection-Hackathon" target="_blank">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-container">
-        <img src="images/biscuit.png" alt="Biscuit Production Optimization" class="project-image">
-        <div class="project-info">
-            <h3>Optimization of Biscuit Production</h3>
-            <p>AI algorithms optimize biscuit production from fixed-size dough rolls, maximizing profit under constraints. Implemented with Constraint Satisfaction + Dynamic Programming and Genetic Algorithm.</p>
-            <a href="https://github.com/codes-by-sethu/Optimization-of-Biscuit-Production" target="_blank">View on GitHub</a>
-        </div>
+      <img src="./images/biscuit.png" alt="Biscuit Production Optimization" class="project-image">
+      <div class="project-info">
+        <h3>Optimization of Biscuit Production</h3>
+        <p>AI algorithms optimize production, maximizing profit under constraints. CSP + DP and Genetic Algorithm.</p>
+        <a href="https://github.com/codes-by-sethu/Optimization-of-Biscuit-Production" target="_blank">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-container">
-        <img src="images/creditcard.jpg" alt="Credit Card Fraud Detection" class="project-image">
-        <div class="project-info">
-            <h3>Credit Card Fraud Detection</h3>
-            <p>ML-based fraud detection using SMOTE, PCA, and models like Random Forest, SVM, AdaBoost, and XGBoost for accurate detection.</p>
-            <a href="https://github.com/codes-by-sethu/Credit-Card-Fraud-Detection" target="_blank">View on GitHub</a>
-        </div>
+      <img src="./images/creditcard.jpg" alt="Credit Card Fraud Detection" class="project-image">
+      <div class="project-info">
+        <h3>Credit Card Fraud Detection</h3>
+        <p>ML-based fraud detection using SMOTE, PCA, Random Forest, SVM, AdaBoost, XGBoost.</p>
+        <a href="https://github.com/codes-by-sethu/Credit-Card-Fraud-Detection" target="_blank">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-container">
-        <img src="images/path.jpg" alt="Logistics Path Optimization" class="project-image">
-        <div class="project-info">
-            <h3>Path Optimization using AI for Logistics</h3>
-            <p>AI-driven delivery route optimization to minimize cost and travel time using machine learning and real-time location data.</p>
-            <a href="https://github.com/codes-by-sethu/Path_Optimization_using_AI" target="_blank">View on GitHub</a>
-        </div>
+      <img src="./images/path.jpg" alt="Logistics Path Optimization" class="project-image">
+      <div class="project-info">
+        <h3>Path Optimization for Logistics</h3>
+        <p>AI-driven delivery route optimization using ML and real-time location data.</p>
+        <a href="https://github.com/codes-by-sethu/Path_Optimization_using_AI" target="_blank">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-container">
-        <img src="images/OLX-CLONE.jpg" alt="OLX Clone" class="project-image">
-        <div class="project-info">
-            <h3>OLX-CLONE</h3>
-            <p>Scalable, secure C2C marketplace addressing fraud detection and ad lifecycle management, developed as a Bachelor's degree project.</p>
-            <a href="https://github.com/codes-by-sethu/OLX-CLONE" target="_blank">View on GitHub</a>
-        </div>
+      <img src="./images/OLX-CLONE.jpg" alt="OLX Clone" class="project-image">
+      <div class="project-info">
+        <h3>OLX-CLONE</h3>
+        <p>Scalable C2C marketplace addressing fraud detection and ad lifecycle management.</p>
+        <a href="https://github.com/codes-by-sethu/OLX-CLONE" target="_blank">View on GitHub</a>
+      </div>
     </div>
+  </div>
+</section>
 
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill-bar"><div class="skill-fill" style="width:90%">Python</div></div>
+    <div class="skill-bar"><div class="skill-fill" style="width:85%">Machine Learning</div></div>
+    <div class="skill-bar"><div class="skill-fill" style="width:80%">AI & Data Engineering</div></div>
+    <div class="skill-bar"><div class="skill-fill" style="width:70%">Web Development</div></div>
+    <div class="skill-bar"><div class="skill-fill" style="width:75%">SQL & Databases</div></div>
+    <div class="skill-bar"><div class="skill-fill" style="width:70%">Docker & Cloud</div></div>
+  </div>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div class="certifications">
+    <div>Ethical Hacking | 2023 | Avodha Institute</div>
+    <div>Enablers Agile Methodology | 2024</div>
+    <div>IBM watsonx.data Technical Essentials | 2025</div>
+    <div>Getting Started with Generative AI | 2025</div>
+  </div>
+</section>
+
+<section id="languages">
+  <h2>Languages</h2>
+  <div class="languages">
+    <div>French – B1</div>
+    <div>English – C1</div>
+    <div>Malayalam – Native</div>
+  </div>
 </section>
 
 <section id="contact">
-    <h2>Contact Me</h2>
-    <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+  <h2>Contact Me</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
 <footer>
-    <p>&copy; 2025 Sethulakshmi. All rights reserved.</p>
+  <p>&copy; 2025 Sethulakshmi. All rights reserved.</p>
 </footer>
 
 <script src="script.js"></script>
