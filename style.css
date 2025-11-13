@@ -13,16 +13,18 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-header h1 {
-    font-size: 2em;
-}
+header h1 { font-size: 2em; }
 
 nav {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -32,16 +34,18 @@ nav a {
     font-weight: bold;
 }
 
-nav a:hover {
-    text-decoration: underline;
-}
+nav a:hover { text-decoration: underline; }
 
 section {
     padding: 60px 20px;
     max-width: 1000px;
     margin: auto;
+    background: #f4f4f4;
 }
 
+h2 { text-align: center; margin-bottom: 2rem; }
+
+/* Profile photo */
 .profile-photo {
     width: 150px;
     border-radius: 50%;
@@ -49,6 +53,7 @@ section {
     margin: 20px auto;
 }
 
+/* Projects */
 .project-container {
     display: flex;
     align-items: center;
@@ -60,40 +65,104 @@ section {
     transition: transform 0.2s;
 }
 
-.project-container:hover {
-    transform: scale(1.02);
-}
+.project-container:hover { transform: scale(1.02); }
 
-.project-image {
-    width: 250px;
-    height: auto;
-    border-radius: 10px;
-    margin-right: 20px;
-}
+.project-image { width: 250px; height: auto; border-radius: 10px; margin-right: 20px; }
 
-.project-info h3 {
-    margin-bottom: 10px;
-}
+.project-info h3 { margin-bottom: 10px; }
 
-.project-info p {
-    margin-bottom: 10px;
-}
+.project-info p { margin-bottom: 10px; }
 
 .project-info a {
     text-decoration: none;
     color: #222;
     font-weight: bold;
 }
+.project-info a:hover { color: #0077cc; }
 
-.project-info a:hover {
-    color: #0077cc;
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
+.skill-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.skill-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 15px;
+    background: #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    width: 0;
+    background: #0077cc;
+    border-radius: 10px;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Certifications and Languages */
+.certifications, .languages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.certifications div, .languages div {
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-width: 180px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.certifications div:hover, .languages div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.certifications div a {
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+.certifications div a:hover { color: #005599; }
+
+/* Contact Form */
 .contact-form input, 
 .contact-form textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
 }
 
 .contact-form button {
@@ -102,12 +171,13 @@ section {
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius:5px;
+    transition: background 0.3s;
 }
 
-.contact-form button:hover {
-    background: #555;
-}
+.contact-form button:hover { background: #555; }
 
+/* Footer */
 footer {
     background: #222;
     color: #fff;
@@ -117,12 +187,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .project-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .project-image {
-        margin: 0 0 15px 0;
-    }
+    .project-container { flex-direction: column; text-align: center; }
+    .project-image { margin: 0 0 15px 0; }
+    .skill-bar, .certifications div, .languages div { min-width: 100%; }
 }
