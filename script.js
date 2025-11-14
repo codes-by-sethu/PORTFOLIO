@@ -20,32 +20,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ---------------- Skill Bar Animation ---------------- */
-    const skillObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            
-            const card = entry.target;
-            const level = card.dataset.level;
-            const fill = card.querySelector('.skill-progress-fill');
-            
-            // Add a small delay for staggered animation
-            const delay = Array.from(card.parentNode.children).indexOf(card) * 100;
-            
-            setTimeout(() => {
-                fill.style.width = level + '%';
-                fill.style.transition = `width 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) ${delay}ms`;
-            }, 200);
-            
-            skillObserver.unobserve(card);
-        });
-    }, { 
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    
+    const skillItems = entry.target.querySelectorAll('.skill-item');
+    skillItems.forEach((item, index) => {
+      const progressBar = item.querySelector('.skill-progress');
+      const level = progressBar.dataset.level;
+      
+      setTimeout(() => {
+        progressBar.style.width = level + '%';
+      }, index * 150); // Staggered animation
     });
+    
+    skillObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.3 });
 
-    document.querySelectorAll('.skill-card').forEach(card => {
-        skillObserver.observe(card);
-    });
+// Observe each skill category instead of individual cards
+document.querySelectorAll('.skill-category').forEach(category => {
+  skillObserver.observe(category);
+});
 
     /* ---------------- Contact Form ---------------- */
     const form = document.querySelector('.contact-form');
