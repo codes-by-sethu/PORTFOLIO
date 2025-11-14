@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 // Update URL without jumping
-                history.pushState(null, null, targetId);
+            history.replaceState(null, null, ' ');
             }
         });
     });
