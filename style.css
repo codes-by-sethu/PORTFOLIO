@@ -49,15 +49,6 @@ nav a.active {
     border-bottom: 2px solid #00bfff;
 }
 
-nav a.resume-btn {
-    background: #1a73e8;
-    padding: 5px 12px;
-    border-radius: 5px;
-    margin-left: 1rem;
-}
-
-nav a.resume-btn:hover { background: #155ab6; }
-
 /* ---------------- Hero Section ---------------- */
 .hero {
     text-align: center;
@@ -210,18 +201,20 @@ h2:after {
 }
 
 .skill-item {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.8rem;
+    align-items: center;
 }
 
 .skill-name {
     font-weight: 500;
     color: #2c3e50;
     font-size: 0.95rem;
-    margin-bottom: 5px;
 }
 
 .skill-bar {
+    grid-column: 1 / -1;
     height: 6px;
     background: #ecf0f1;
     border-radius: 3px;
@@ -233,7 +226,16 @@ h2:after {
     height: 100%;
     background: linear-gradient(90deg, #1a73e8, #00bfff);
     border-radius: 3px;
-    width: 100%; /* Always filled in blue */
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.skill-percent {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a73e8;
+    min-width: 40px;
+    text-align: right;
 }
 
 /* ---------------- Certifications & Languages ---------------- */
@@ -337,5 +339,6 @@ footer a:hover { color: #1a73e8; }
 @media (max-width: 500px) {
     h2 { font-size: 1.8rem; }
     .category-header { flex-direction: column; text-align: center; gap: 0.5rem; }
+    .skill-item { grid-template-columns: 1fr auto; }
     section { padding: 2rem 1rem; }
 }
