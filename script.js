@@ -1,106 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     /* ---------------- Smooth Scrolling ---------------- */
     document.querySelectorAll('nav a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             const target = document.querySelector(targetId);
-            
             if (target) {
                 const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Update URL without jumping
-            history.replaceState(null, null, ' ');
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                history.replaceState(null, null, ' ');
             }
         });
     });
 
-    /* ---------------- Skill Bar Animation ---------------- */
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    
-    const skillItems = entry.target.querySelectorAll('.skill-item');
-    skillItems.forEach((item, index) => {
-      const progressBar = item.querySelector('.skill-progress');
-      const level = progressBar.dataset.level;
-      
-      setTimeout(() => {
-        progressBar.style.width = level + '%';
-      }, index * 150); // Staggered animation
-    });
-    
-    skillObserver.unobserve(entry.target);
-  });
-}, { threshold: 0.3 });
+    /* ---------------- Skill Bar Fill ---------------- */
+    const skillObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const bars = entry.target.querySelectorAll('.skill-progress');
+            bars.forEach(bar => {
+                bar.style.width = "100%"; // always blue fill
+            });
+            skillObserver.unobserve(entry.target);
+        });
+    }, { threshold: 0.3 });
 
-// Observe each skill category instead of individual cards
-document.querySelectorAll('.skill-category').forEach(category => {
-  skillObserver.observe(category);
-});
+    document.querySelectorAll('.skill-category').forEach(cat => skillObserver.observe(cat));
 
     /* ---------------- Contact Form ---------------- */
     const form = document.querySelector('.contact-form');
     if (form) {
-        // Real-time validation
         const inputs = form.querySelectorAll('input[required], textarea[required]');
         inputs.forEach(input => {
             input.addEventListener('input', () => {
-                if (input.value.trim()) {
-                    input.style.borderColor = '#2ecc71';
-                    setTimeout(() => {
-                        input.style.borderColor = '#ccc';
-                    }, 2000);
-                }
+                if (input.value.trim()) input.style.borderColor = '#2ecc71';
+                else input.style.borderColor = '#ccc';
             });
         });
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-
-            const required = form.querySelectorAll('input[required], textarea[required]');
             let valid = true;
-
-            required.forEach(el => {
+            inputs.forEach(el => {
                 if (!el.value.trim()) {
                     valid = false;
                     el.style.borderColor = '#e74c3c';
-                    // Add shake animation for invalid fields
                     el.style.animation = 'shake 0.5s ease-in-out';
                     setTimeout(() => el.style.animation = '', 500);
-                } else {
-                    el.style.borderColor = '#ccc';
-                }
+                } else el.style.borderColor = '#ccc';
             });
-
             if (!valid) {
-                // Focus first invalid field
-                const firstInvalid = Array.from(required).find(el => !el.value.trim());
-                firstInvalid?.focus();
+                inputs.forEach(el => { if (!el.value.trim()) el.focus(); });
                 return;
             }
 
             const btn = form.querySelector('button[type="submit"]');
-            const original = btn.textContent;
-            const originalBg = btn.style.background;
+            const origText = btn.textContent;
+            const origBg = btn.style.background;
 
             btn.textContent = 'Sending...';
             btn.disabled = true;
 
-            // Simulate API call
             setTimeout(() => {
                 btn.textContent = 'Message Sent!';
                 btn.style.background = '#27ae60';
                 form.reset();
-
                 setTimeout(() => {
-                    btn.textContent = original;
+                    btn.textContent = origText;
                     btn.disabled = false;
-                    btn.style.background = originalBg;
+                    btn.style.background = origBg;
                 }, 3000);
             }, 1500);
         });
@@ -112,19 +81,14 @@ document.querySelectorAll('.skill-category').forEach(category => {
             if (entry.isIntersecting) {
                 const card = entry.target;
                 const delay = Array.from(card.parentNode.children).indexOf(card) * 100;
-                
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }, delay);
-                
                 projectObserver.unobserve(card);
             }
         });
-    }, { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     document.querySelectorAll('.project-container').forEach(card => {
         card.style.opacity = '0';
@@ -157,48 +121,49 @@ document.querySelectorAll('.skill-category').forEach(category => {
                 const id = entry.target.getAttribute('id');
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
+                    if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
                 });
             }
         });
     }, { threshold: 0.5 });
 
     sections.forEach(section => sectionObserver.observe(section));
-});
 
-// Add this CSS for the shake animation and active nav link
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-5px); }
-        75% { transform: translateX(5px); }
+    /* ---------------- Resume Download ---------------- */
+    const resumeBtn = document.querySelector('nav a.resume-btn');
+    if (resumeBtn) {
+        resumeBtn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = '/resume.pdf'; // replace with your resume path
+            link.download = 'Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
     }
-    
-    nav a.active {
-        color: #00bfff !important;
-        font-weight: 600;
-    }
-    
-    nav a.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: #00bfff;
-    }
-    
-    header {
-        transition: all 0.3s ease;
-    }
-    
-    nav a {
-        position: relative;
-        transition: color 0.3s ease;
-    }
-`;
-document.head.appendChild(style);
+
+    /* ---------------- Shake Animation CSS ---------------- */
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        nav a.active {
+            color: #00bfff !important;
+            font-weight: 600;
+        }
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00bfff;
+        }
+    `;
+    document.head.appendChild(style);
+
+});
