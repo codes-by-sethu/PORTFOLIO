@@ -14,96 +14,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 // Update URL without jumping
-            history.replaceState(null, null, ' ');
+                history.replaceState(null, null, ' ');
             }
         });
     });
 
     /* ---------------- Skill Bar Animation ---------------- */
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    
-    const skillItems = entry.target.querySelectorAll('.skill-item');
-    skillItems.forEach((item, index) => {
-      const progressBar = item.querySelector('.skill-progress');
-      const level = progressBar.dataset.level;
-      
-      setTimeout(() => {
-        progressBar.style.width = level + '%';
-      }, index * 150); // Staggered animation
-    });
-    
-    skillObserver.unobserve(entry.target);
-  });
-}, { threshold: 0.3 });
-
-// Observe each skill category instead of individual cards
-document.querySelectorAll('.skill-category').forEach(category => {
-  skillObserver.observe(category);
-});
-
-    /* ---------------- Contact Form ---------------- */
-    const form = document.querySelector('.contact-form');
-    if (form) {
-        // Real-time validation
-        const inputs = form.querySelectorAll('input[required], textarea[required]');
-        inputs.forEach(input => {
-            input.addEventListener('input', () => {
-                if (input.value.trim()) {
-                    input.style.borderColor = '#2ecc71';
-                    setTimeout(() => {
-                        input.style.borderColor = '#ccc';
-                    }, 2000);
-                }
-            });
-        });
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-
-            const required = form.querySelectorAll('input[required], textarea[required]');
-            let valid = true;
-
-            required.forEach(el => {
-                if (!el.value.trim()) {
-                    valid = false;
-                    el.style.borderColor = '#e74c3c';
-                    // Add shake animation for invalid fields
-                    el.style.animation = 'shake 0.5s ease-in-out';
-                    setTimeout(() => el.style.animation = '', 500);
-                } else {
-                    el.style.borderColor = '#ccc';
-                }
-            });
-
-            if (!valid) {
-                // Focus first invalid field
-                const firstInvalid = Array.from(required).find(el => !el.value.trim());
-                firstInvalid?.focus();
-                return;
-            }
-
-            const btn = form.querySelector('button[type="submit"]');
-            const original = btn.textContent;
-            const originalBg = btn.style.background;
-
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
-
-            // Simulate API call
-            setTimeout(() => {
-                btn.textContent = 'Message Sent!';
-                btn.style.background = '#27ae60';
-                form.reset();
-
+    const skillObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            
+            const skillItems = entry.target.querySelectorAll('.skill-item');
+            skillItems.forEach((item, index) => {
+                const progressBar = item.querySelector('.skill-progress');
+                const level = progressBar.dataset.level;
+                
                 setTimeout(() => {
-                    btn.textContent = original;
-                    btn.disabled = false;
-                    btn.style.background = originalBg;
-                }, 3000);
-            }, 1500);
+                    progressBar.style.width = level + '%';
+                }, index * 150); // Staggered animation
+            });
+            
+            skillObserver.unobserve(entry.target);
         });
+    }, { threshold: 0.3 });
+
+    // Observe each skill category instead of individual cards
+    document.querySelectorAll('.skill-category').forEach(category => {
+        skillObserver.observe(category);
+    });
+
+    /* ---------------- Contact Details Animation ---------------- */
+    const contactObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const contactItems = entry.target.querySelectorAll('.contact-item');
+                contactItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-30px)';
+                    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, index * 200);
+                });
+                
+                contactObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+        contactObserver.observe(contactSection);
     }
 
     /* ---------------- Project Card Reveal ---------------- */
@@ -166,9 +129,67 @@ document.querySelectorAll('.skill-category').forEach(category => {
     }, { threshold: 0.5 });
 
     sections.forEach(section => sectionObserver.observe(section));
+
+    /* ---------------- Download Button Animation ---------------- */
+    const downloadBtn = document.querySelector('.resume-download');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('mouseenter', () => {
+            downloadBtn.style.transform = 'translateY(-2px) scale(1.05)';
+        });
+        
+        downloadBtn.addEventListener('mouseleave', () => {
+            downloadBtn.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        downloadBtn.addEventListener('click', (e) => {
+            // Add click feedback
+            e.target.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                e.target.style.transform = 'scale(1)';
+            }, 150);
+        });
+    }
+
+    /* ---------------- Certification Hover Effects ---------------- */
+    const certificationItems = document.querySelectorAll('.certifications div');
+    certificationItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    /* ---------------- Language Items Animation ---------------- */
+    const languageObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const languageItems = entry.target.querySelectorAll('.languages div');
+                languageItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, index * 150);
+                });
+                
+                languageObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const languagesSection = document.querySelector('#languages');
+    if (languagesSection) {
+        languageObserver.observe(languagesSection);
+    }
 });
 
-// Add this CSS for the shake animation and active nav link
+// Add this CSS for animations and active nav link
 const style = document.createElement('style');
 style.textContent = `
     @keyframes shake {
@@ -199,6 +220,31 @@ style.textContent = `
     nav a {
         position: relative;
         transition: color 0.3s ease;
+    }
+    
+    .resume-download {
+        transition: all 0.3s ease !important;
+    }
+    
+    .contact-item {
+        transition: all 0.3s ease !important;
+    }
+    
+    .certifications div, .languages div {
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Loading animation for images */
+    .project-image {
+        transition: opacity 0.5s ease;
+    }
+    
+    .project-image:not([src]) {
+        opacity: 0;
+    }
+    
+    .project-image[src] {
+        opacity: 1;
     }
 `;
 document.head.appendChild(style);
