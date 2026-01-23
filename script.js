@@ -252,15 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('message', message);
         formData.append('_subject', 'New message from portfolio website');
         
-        // === UNCOMMENT AND REPLACE WITH YOUR FORMSPREE ENDPOINT ===
-        // 1. Go to https://formspree.io/
-        // 2. Sign up for free
-        // 3. Create a new form
-        // 4. Get your form endpoint
-        // 5. Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual endpoint
-        
-        /*
-        const response = await fetch('YOUR_FORMSPREE_ENDPOINT', {
+        // Send data to Formspree
+        const response = await fetch('https://formspree.io/f/xqepbbdq', {
           method: 'POST',
           body: formData,
           headers: {
@@ -273,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           throw new Error('Failed to send message');
         }
-        */
+        
         
         // For testing - show success message
         showAlert('Message sent successfully! I\'ll get back to you soon.', 'success');
@@ -283,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
       } catch (error) {
         console.error('Form submission error:', error);
-        showAlert('Failed to send message. Please email me directly at sethukochuchirayil@gmail.com', 'error');
+        showAlert('Failed to send message. Please email me directly at sethulakshmikb760@gmail.com', 'error');
       } finally {
         // Reset button
         submitBtn.innerHTML = originalText;
