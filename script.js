@@ -204,37 +204,202 @@ document.addEventListener('DOMContentLoaded', () => {
     certObserver.observe(card);
   });
   
-  // ===== Contact Form Submission =====
+  // ===== WORKING CONTACT FORM WITH VALIDATION =====
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Get form data
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData);
+      // Get form inputs
+      const nameInput = contactForm.querySelector('input[type="text"]');
+      const emailInput = contactForm.querySelector('input[type="email"]');
+      const messageInput = contactForm.querySelector('textarea');
       
-      // In a real application, you would send this data to a server
-      console.log('Form submitted:', data);
+      // Get values
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
       
-      // Show success message
+      // Validate form
+      if (!name || !email || !message) {
+        showAlert('Please fill in all fields', 'error');
+        return;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showAlert('Please enter a valid email address', 'error');
+        return;
+      }
+      
+      // Show loading state
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
+      const originalBackground = submitBtn.style.background;
       
-      submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       submitBtn.disabled = true;
-      submitBtn.style.background = 'var(--success-color)';
       
-      // Reset form
-      contactForm.reset();
-      
-      // Reset button after 3 seconds
-      setTimeout(() => {
+      try {
+        // Simulate API call delay (remove in production)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Prepare data for Formspree
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+        formData.append('_subject', 'New message from portfolio website');
+        
+        
+        // For testing - just show success message
+        // Remove this in production and uncomment the fetch code below
+        
+        // Show success message
+        showAlert('Message sent successfully! I\'ll get back to you soon.', 'success');
+        
+        // In production, uncomment this code and add your Formspree endpoint:
+        
+        const response = await fetch('https://formspree.io/f/xqepbbdq', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          showAlert('Message sent successfully! I\'ll get back to you soon.', 'success');
+        } else {
+          throw new Error('Failed to send message');
+        }
+        
+        
+        // Reset form
+        contactForm.reset();
+        
+      } catch (error) {
+        console.error('Form submission error:', error);
+        showAlert('Failed to send message. Please email me directly at sethukochuchirayil@gmail.com', 'error');
+      } finally {
+        // Reset button
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-        submitBtn.style.background = '';
-      }, 3000);
+        submitBtn.style.background = originalBackground;
+      }
     });
+  }
+  
+  // Alert notification function
+  function showAlert(message, type = 'success') {
+    // Remove existing alerts
+    const existingAlert = document.querySelector('.alert-notification');
+    if (existingAlert) existingAlert.remove();
+    
+    // Create alert element
+    const alert = document.createElement('div');
+    alert.className = `alert-notification alert-${type}`;
+    alert.innerHTML = `
+      <div class="alert-content">
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+        <span>${message}</span>
+      </div>
+      <button class="alert-close">&times;</button>
+    `;
+    
+    // Add to page
+    document.body.appendChild(alert);
+    
+    // Add CSS styles
+    alert.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      padding: 15px 20px;
+      background: ${type === 'success' ? '#10b981' : '#ef4444'};
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      z-index: 10000;
+      animation: slideInRight 0.3s ease;
+      max-width: 400px;
+    `;
+    
+    // Style the content
+    const alertContent = alert.querySelector('.alert-content');
+    alertContent.style.cssText = `
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    `;
+    
+    // Style close button
+    const closeBtn = alert.querySelector('.alert-close');
+    closeBtn.style.cssText = `
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    `;
+    
+    closeBtn.addEventListener('mouseenter', () => {
+      closeBtn.style.opacity = '1';
+    });
+    
+    closeBtn.addEventListener('mouseleave', () => {
+      closeBtn.style.opacity = '0.8';
+    });
+    
+    // Add animation keyframes
+    if (!document.querySelector('#alert-animation-styles')) {
+      const style = document.createElement('style');
+      style.id = 'alert-animation-styles';
+      style.textContent = `
+        @keyframes slideInRight {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutRight {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // Close button functionality
+    closeBtn.addEventListener('click', () => {
+      alert.style.animation = 'slideOutRight 0.3s ease';
+      setTimeout(() => {
+        if (alert.parentNode) {
+          alert.remove();
+        }
+      }, 300);
+    });
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+      if (alert.parentNode) {
+        alert.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+          if (alert.parentNode) {
+            alert.remove();
+          }
+        }, 300);
+      }
+    }, 5000);
   }
   
   // ===== Back to Top Button =====
@@ -260,13 +425,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== Typing Effect for Hero Title =====
   const heroTitle = document.querySelector('.hero-title');
   if (heroTitle) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
+    const originalText = heroTitle.innerHTML;
+    heroTitle.innerHTML = '';
     let i = 0;
     
     function typeWriter() {
-      if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
+      if (i < originalText.length) {
+        // Handle the highlight span separately
+        if (originalText.substring(i, i + 7) === '<span c') {
+          heroTitle.innerHTML = originalText;
+          return;
+        }
+        
+        heroTitle.innerHTML += originalText.charAt(i);
         i++;
         setTimeout(typeWriter, 50);
       }
@@ -275,7 +446,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start typing effect when hero section is in view
     const heroObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        typeWriter();
+        setTimeout(() => {
+          typeWriter();
+        }, 500);
         heroObserver.unobserve(entries[0].target);
       }
     }, { threshold: 0.5 });
@@ -284,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   // ===== Download Resume Button Animation =====
-  const downloadBtn = document.querySelector('.resume-download');
+  const downloadBtn = document.querySelector('.btn-secondary');
   if (downloadBtn) {
     downloadBtn.addEventListener('click', (e) => {
       // Add click animation
@@ -293,11 +466,39 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.style.transform = 'scale(1)';
       }, 150);
       
-      // In a real application, you might want to track downloads
+      // Track download (for analytics in real application)
       console.log('Resume download initiated');
     });
   }
   
-  // ===== Initialize Animations =====
+  // ===== Sticky Navbar Background =====
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'var(--shadow-sm)';
+      }
+    });
+  }
+  
+  // ===== Initialize Console Log =====
   console.log('Portfolio initialized successfully!');
 });
+
+// Add CSS for drone icon (if not available)
+if (!document.querySelector('#drone-icon-style')) {
+  const style = document.createElement('style');
+  style.id = 'drone-icon-style';
+  style.textContent = `
+    .fa-drone:before {
+      content: "\\f0d1";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+    }
+  `;
+  document.head.appendChild(style);
+}
