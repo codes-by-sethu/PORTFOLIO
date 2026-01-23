@@ -204,16 +204,16 @@ document.addEventListener('DOMContentLoaded', () => {
     certObserver.observe(card);
   });
   
-  // ===== WORKING CONTACT FORM WITH VALIDATION =====
+  // ===== WORKING CONTACT FORM =====
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       // Get form inputs
-      const nameInput = contactForm.querySelector('input[type="text"]');
-      const emailInput = contactForm.querySelector('input[type="email"]');
-      const messageInput = contactForm.querySelector('textarea');
+      const nameInput = contactForm.querySelector('input[name="name"]');
+      const emailInput = contactForm.querySelector('input[name="email"]');
+      const messageInput = contactForm.querySelector('textarea[name="message"]');
       
       // Get values
       const name = nameInput.value.trim();
@@ -252,16 +252,15 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('message', message);
         formData.append('_subject', 'New message from portfolio website');
         
+        // === UNCOMMENT AND REPLACE WITH YOUR FORMSPREE ENDPOINT ===
+        // 1. Go to https://formspree.io/
+        // 2. Sign up for free
+        // 3. Create a new form
+        // 4. Get your form endpoint
+        // 5. Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual endpoint
         
-        // For testing - just show success message
-        // Remove this in production and uncomment the fetch code below
-        
-        // Show success message
-        showAlert('Message sent successfully! I\'ll get back to you soon.', 'success');
-        
-        // In production, uncomment this code and add your Formspree endpoint:
-        
-        const response = await fetch('https://formspree.io/f/xqepbbdq', {
+        /*
+        const response = await fetch('YOUR_FORMSPREE_ENDPOINT', {
           method: 'POST',
           body: formData,
           headers: {
@@ -274,7 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           throw new Error('Failed to send message');
         }
+        */
         
+        // For testing - show success message
+        showAlert('Message sent successfully! I\'ll get back to you soon.', 'success');
         
         // Reset form
         contactForm.reset();
@@ -465,9 +467,6 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         e.target.style.transform = 'scale(1)';
       }, 150);
-      
-      // Track download (for analytics in real application)
-      console.log('Resume download initiated');
     });
   }
   
@@ -488,17 +487,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== Initialize Console Log =====
   console.log('Portfolio initialized successfully!');
 });
-
-// Add CSS for drone icon (if not available)
-if (!document.querySelector('#drone-icon-style')) {
-  const style = document.createElement('style');
-  style.id = 'drone-icon-style';
-  style.textContent = `
-    .fa-drone:before {
-      content: "\\f0d1";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-    }
-  `;
-  document.head.appendChild(style);
-}
