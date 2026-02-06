@@ -17,10 +17,10 @@
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --danger-color: #ef4444;
-  
+
   --font-primary: 'Poppins', sans-serif;
   --font-secondary: 'Inter', sans-serif;
-  
+
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
   --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -342,23 +342,37 @@ body {
   align-items: center;
 }
 
-.image-placeholder {
+/* UPDATED: Styles for the Profile Photo Wrapper */
+.image-wrapper {
   width: 400px;
   height: 400px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  border-radius: 50%;
+  border: 8px solid white;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 8rem;
-  animation: float 6s ease-in-out infinite;
-  box-shadow: var(--shadow-lg);
+  background: white;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(1deg);
+  }
 }
 
 /* ===== About Section ===== */
@@ -990,16 +1004,17 @@ body {
     gap: 3rem;
     text-align: center;
   }
-  
+
   .hero-image {
     order: -1;
   }
-  
-  .image-placeholder {
+
+  /* Updated for mobile responsiveness */
+  .image-wrapper {
     width: 300px;
     height: 300px;
   }
-  
+
   .about-content {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1010,11 +1025,11 @@ body {
   .nav-menu {
     display: none;
   }
-  
+
   .mobile-menu-btn {
     display: block;
   }
-  
+
   .nav-menu.active {
     display: flex;
     flex-direction: column;
@@ -1027,36 +1042,36 @@ body {
     box-shadow: var(--shadow-lg);
     gap: 1.5rem;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
   }
-  
+
   .hero-stats {
     justify-content: center;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .skills-container {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-container {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .footer-content {
     flex-direction: column;
     gap: 2rem;
@@ -1067,17 +1082,17 @@ body {
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
-  .image-placeholder {
+
+  /* Updated for small screens */
+  .image-wrapper {
     width: 250px;
     height: 250px;
-    font-size: 6rem;
   }
-  
+
   .filter-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
