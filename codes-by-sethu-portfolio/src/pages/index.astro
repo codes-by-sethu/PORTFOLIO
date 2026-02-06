@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sethulakshmi KB | Data & AI Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/professional.css">
+  
+  <style>
+    /* Marine Journu + Enhanced functionality */
+    .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; }
+    .navbar { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .project-card, .skill-group { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
+    .mobile-menu-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: white; }
+    
+    @media (max-width: 768px) {
+      .nav-links { background: rgba(15,23,42,0.95); backdrop-filter: blur(20px); }
+      .nav-links.active { display: flex !important; }
+      .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Glass Navbar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="#" class="logo" style="color: white !important;">Sethulakshmi<span style="color: #60a5fa;">KB</span></a>
+      <ul class="nav-links">
+        <li><a href="#projects" style="color: white !important;">Projects</a></li>
+        <li><a href="#skills" style="color: white !important;">Skills</a></li>
+        <li><a href="#certifications" style="color: white !important;">Certifications</a></li>
+        <li><a href="#contact" style="color: white !important; font-weight: 600;">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Full-height Hero -->
+  <section class="hero">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: 90vh;">
+        <div>
+          <h1 style="font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, white 0%, #e2e8f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Sethulakshmi KB
+          </h1>
+          <p style="font-size: 1.3rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Data & AI Engineer<br><span style="font-size: 1.1rem; opacity: 0.8;">ESILV Master's • Paris Region</span></p>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0;">
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">95%</div>
+              <div style="color: rgba(255,255,255,0.7);">Bike-PIM Uptime</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">13/min</div>
+              <div style="color: rgba(255,255,255,0.7);">Doc Auditor</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; font-weight: 800; color: #60a5fa;">16+</div>
+              <div style="color: rgba(255,255,255,0.7);">Projects</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#projects" class="btn btn-primary" style="background: linear-gradient(135deg, #60a5fa, #3b82f6) !important;">
+              <i class="fas fa-rocket"></i> View Work
+            </a>
+            <a href="Sethulakshmi_Babu_Resume.pdf" class="btn btn-secondary" download style="border-color: rgba(255,255,255,0.3) !important; color: white !important;">
+              <i class="fas fa-download"></i> Resume
+            </a>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <div style="width: 300px; height: 300px; background: linear-gradient(135deg, rgba(96,165,250,0.1), rgba(59,130,246,0.1)); border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+            <i class="fas fa-brain" style="font-size: 6rem; color: rgba(96,165,250,0.5);"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 Production Projects -->
+  <section id="projects" class="section" style="background: var(--bg-secondary); padding: 120px 0;">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--text-primary);">Production Projects</h2>
+      <p class="section-subtitle">Live AI systems • Verified metrics • GitHub-ready</p>
+      
+      <div class="projects-grid" style="margin-top: 4rem; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));">
+        <!-- 1. Bike PIM (Hero project) -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+            <i class="fas fa-motorcycle" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">Bike PIM Agentic Scraper</h3>
+          <p class="project-description">Production anti-bot scraper → Llama3.2 agents → Pydantic ETL<br><strong style="color: var(--accent);">95% uptime • 12 products/min</strong></p>
+          <div class="project-tech">
+            <span class="tech-tag">FastAPI</span><span class="tech-tag">Llama3.2</span><span class="tech-tag">Pydantic</span><span class="tech-tag">Agentic AI</span>
+          </div>
+          <a href="https://github.com/codes-by-sethu/Bike-PIM-Agentic-Scraper" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- 2. Document Auditor -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <i class="fas fa-file-contract" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">Intelligent Document Auditor</h3>
+          <p class="project-description">Production RAG system with ChromaDB vector store<br><strong style="color: var(--accent);">13 PDF pairs/min</strong></p>
+          <div class="project-tech">
+            <span class="tech-tag">RAG</span><span class="tech-tag">ChromaDB</span><span class="tech-tag">Streamlit</span><span class="tech-tag">LLM Pipeline</span>
+          </div>
+          <a href="https://github.com/codes-by-sethu/Intelligent-Document-Auditor" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- 3. Resume Matcher -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+            <i class="fas fa-file-alt" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">Smart AI Resume Matcher</h3>
+          <p class="project-description">NLP-powered resume screening with semantic search algorithms</p>
+          <div class="project-tech">
+            <span class="tech-tag">NLP</span><span class="tech-tag">FastAPI</span><span class="tech-tag">BERT</span><span class="tech-tag">Semantic Search</span>
+          </div>
+          <a href="https://github.com/codes-by-sethu/smart-AI-resume-matcher" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- 4. Fraud Detection -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+            <i class="fas fa-credit-card" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">Credit Card Fraud Detection</h3>
+          <p class="project-description">Production ML pipeline (ROC-AUC 0.99+)<br>SMOTE, XGBoost, Random Forest ensemble</p>
+          <div class="project-tech">
+            <span class="tech-tag">XGBoost</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">SMOTE</span>
+          </div>
+          <a href="https://github.com/codes-by-sethu/Credit-Card-Fraud-Detection" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- 5. Analytics Dashboard -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+            <i class="fas fa-chart-pie" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">AI Analytics Dashboard</h3>
+          <p class="project-description">Real-time ML insights with predictive analytics</p>
+          <div class="project-tech">
+            <span class="tech-tag">Streamlit</span><span class="tech-tag">Plotly</span><span class="tech-tag">ML Models</span>
+          </div>
+          <a href="https://github.com/codes-by-sethu/AI-Powered-Smart-Analytics-Dashboard" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- 6. Drone Health -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+            <i class="fas fa-drone" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">Drone Health Guard</h3>
+          <p class="project-description">Predictive maintenance with Random Forest</p>
+          <div class="project-tech">
+            <span class="tech-tag">Random Forest</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">IoT</span>
+          </div>
+          <a href="https://github.com/LUTHFI007/DroneFaultDetection-Hackathon" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- 7. Path Optimization -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #ec4899, #db2777);">
+            <i class="fas fa-route" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">Logistics Path Optimization</h3>
+          <p class="project-description">AI-driven delivery route optimization</p>
+          <div class="project-tech">
+            <span class="tech-tag">ML Algorithms</span><span class="tech-tag">Geospatial</span>
+          </div>
+          <a href="https://github.com/codes-by-sethu/Path_Optimization_using_AI" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- 8. OLX Clone -->
+        <div class="project-card" style="padding: 2.5rem;">
+          <div class="project-image" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
+            <i class="fas fa-store" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
+          </div>
+          <h3 class="project-title">OLX Clone Marketplace</h3>
+          <p class="project-description">Full-stack C2C platform with fraud detection</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span><span class="tech-tag">MySQL</span><span class="tech-tag">Full Stack</span>
+          </div>
+          <a href="https://github.com/codes-by-sethu/OLX-CLONE" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Skills Section -->
+  <section id="skills" class="section" style="padding: 120px 0;">
+    <div class="container">
+      <h2 class="section-title">Technical Stack</h2>
+      <p class="section-subtitle">Production-grade AI/Data Engineering (2026)</p>
+      
+      <div class="skills-grid" style="margin-top: 4rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- Agentic AI -->
+        <div class="skill-group" style="padding: 2.5rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 1rem;">
+            <i class="fas fa-robot" style="color: #3b82f6; font-size: 1.5rem;"></i> Agentic AI & LLMs
+          </h3>
+          <div class="skill-list" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <span class="skill-item">Llama3.2 Agents</span><span class="skill-item">LangChain</span><span class="skill-item">Tool Calling</span>
+            <span class="skill-item">RAG Pipelines</span><span class="skill-item">Prompt Engineering</span><span class="skill-item">Function Calling</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-group" style="padding: 2.5rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 1rem;">
+            <i class="fas fa-server" style="color: #10b981; font-size: 1.5rem;"></i> Backend & APIs
+          </h3>
+          <div class="skill-list" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <span class="skill-item">FastAPI</span><span class="skill-item">Pydantic</span><span class="skill-item">Node.js</span>
+            <span class="skill-item">Express.js</span><span class="skill-item">REST APIs</span><span class="skill-item">Docker</span>
+          </div>
+        </div>
+
+        <!-- ML Engineering -->
+        <div class="skill-group" style="padding: 2.5rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 1rem;">
+            <i class="fas fa-brain" style="color: #8b5cf6; font-size: 1.5rem;"></i> Machine Learning
+          </h3>
+          <div class="skill-list" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <span class="skill-item">XGBoost</span><span class="skill-item">Random Forest</span><span class="skill-item">Scikit-learn</span>
+            <span class="skill-item">Feature Engineering</span><span class="skill-item">Hyperparameter Tuning</span><span class="skill-item">Model Evaluation</span>
+          </div>
+        </div>
+
+        <!-- Data Engineering -->
+        <div class="skill-group" style="padding: 2.5rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 1rem;">
+            <i class="fas fa-database" style="color: #f59e0b; font-size: 1.5rem;"></i> Data Engineering
+          </h3>
+          <div class="skill-list" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <span class="skill-item">ETL Pipelines</span><span class="skill-item">PostgreSQL</span><span class="skill-item">ChromaDB</span>
+            <span class="skill-item">Web Scraping</span><span class="skill-item">Data Validation</span><span class="skill-item">MLOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="section" style="background: var(--bg-secondary); padding: 100px 0;">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--text-primary);">Certifications</h2>
+      <div class="cert-grid" style="margin-top: 3rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="cert-card" style="padding: 2rem;">
+          <div class="cert-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);"><i class="fas fa-certificate"></i></div>
+          <h3 style="margin-bottom: 0.5rem;">Dataiku GenAI Practitioner</h3>
+          <p style="color: var(--accent); font-weight: 600; margin-bottom: 1rem;">2026</p>
+          <a href="https://verify.skilljar.com/c/3kmogct6aa2n" target="_blank" class="cert-link">View Badge →</a>
+        </div>
+        <div class="cert-card" style="padding: 2rem;">
+          <div class="cert-icon" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);"><i class="fab fa-ibm"></i></div>
+          <h3 style="margin-bottom: 0.5rem;">IBM Generative AI</h3>
+          <p style="color: var(--accent); font-weight: 600; margin-bottom: 1rem;">2025</p>
+          <a href="https://www.credly.com/badges/805321a0-2301-4145-bcc6-b33e835f780b" target="_blank" class="cert-link">View Badge →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Split -->
+  <section id="contact" class="section" style="padding: 120px 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+        <div>
+          <h2 class="section-title" style="margin-bottom: 2rem;">Let's work together</h2>
+          <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; max-width: 400px;">
+            AI Engineering roles in Paris region. Specializing in production LLM pipelines, agentic systems, and data engineering.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="https://github.com/codes-by-sethu" style="color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; font-weight: 500;" target="_blank">
+              <i class="fab fa-github" style="width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;"></i>
+              codes-by-sethu
+            </a>
+            <a href="https://linkedin.com/in/sethukb" style="color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; font-weight: 500;" target="_blank">
+              <i class="fab fa-linkedin" style="width: 32px; height: 32px; background: #3b82f6; color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;"></i>
+              linkedin.com/in/sethukb
+            </a>
+            <a href="mailto:sethulakshmikb760@gmail.com" style="color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; font-weight: 500;">
+              <i class="fas fa-envelope" style="width: 32px; height: 32px; background: #ef4444; color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;"></i>
+              sethulakshmikb760@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <form style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 400px;">
+          <input type="text" name="name" placeholder="Your name" required style="padding: 1rem 1.25rem; border: 2px solid var(--border); border-radius: var(--radius); font-size: 1rem; transition: border-color 0.2s; font-family: inherit;">
+          <input type="email" name="email" placeholder="your@email.com" required style="padding: 1rem 1.25rem; border: 2px solid var(--border); border-radius: var(--radius); font-size: 1rem; transition: border-color 0.2s; font-family: inherit;">
+          <textarea rows="5" name="message" placeholder="Tell me about your project..." required style="padding: 1rem 1.25rem; border: 2px solid var(--border); border-radius: var(--radius); font-size: 1rem; font-family: inherit; resize: vertical; transition: border-color 0.2s;"></textarea>
+          <button type="submit" class="btn btn-primary" style="width: 100%; background: linear-gradient(135deg, var(--accent), #1d4ed8) !important;">
+            Send message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+      
+      mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+      
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+          navLinks.classList.remove('active');
+        });
+      });
+
+      document.querySelectorAll('input, textarea').forEach(input => {
+        input.addEventListener('focus', () => input.style.borderColor = 'var(--accent)');
+        input.addEventListener('blur', () => input.style.borderColor = 'var(--border)');
+      });
+    });
+  </script>
+</body>
+</html>
