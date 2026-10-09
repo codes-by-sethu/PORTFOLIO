@@ -1216,3 +1216,167 @@ nav.navbar {
   filter: grayscale(0) !important;
   -webkit-filter: grayscale(0) !important;
 }
+
+.contact-intro {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  text-align: center;
+  line-height: 1.8;
+  color: var(--muted, #8d8b86);
+}
+
+#contact .section-subtitle {
+  margin-bottom: 6px;
+}
+
+#contact .contact-item h4 {
+  margin-bottom: 6px;
+}
+
+/* Reduce contact heading size */
+#contact .section-title {
+  font-size: clamp(36px, 4vw, 52px);
+}
+
+/* Align contact links consistently */
+#contact .contact-info {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+#contact .contact-item {
+  align-items: center;
+}
+
+/* Keep icons and text aligned within each row */
+#contact .contact-item>div:last-child {
+  min-width: 0;
+  text-align: left;
+}
+
+#contact .contact-item h4 {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+#contact .contact-item a {
+  display: inline-block;
+  line-height: 1.6;
+}
+
+
+/* Refine contact links alignment only */
+#contact .contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#contact .contact-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  column-gap: 22px;
+  align-items: center;
+  padding: 22px 0;
+  text-align: left;
+}
+
+#contact .contact-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+#contact .contact-item>div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+#contact .contact-item h4 {
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+#contact .contact-item a {
+  margin: 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+#contact .contact-intro {
+  margin-top: 20px;
+  color: #d2c97f;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* LANGUAGES SECTION */
+#languages .section-title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+#languages .languages-container {
+  background: #11120f;
+  border: 1px solid #d9ff5f;
+  border-radius: 10px;
+  padding: 18px 24px;
+  max-width: 650px;
+}
+
+/* Individual language rows */
+#languages .language-item {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(242, 240, 235, 0.10);
+}
+
+#languages .language-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#languages .language-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+#languages .language-name {
+  color: #f2f0eb;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#languages .language-level {
+  color: #a09f97;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+/* Hide the old proficiency bars */
+#languages .language-bar {
+  display: none;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  #languages .languages-container {
+    padding: 14px 16px;
+  }
+
+  #languages .language-info {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  #languages .language-level {
+    max-width: 60%;
+  }
+}
