@@ -669,114 +669,6 @@ body {
   transform: none
 }
 
-.certifications-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 0;
-  background: var(--line);
-  border: 1px solid var(--line)
-}
-
-.cert-card {
-  padding: 30px;
-  text-align: left;
-  background: var(--bg);
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  transition: background var(--transition)
-}
-
-.cert-card:hover {
-  transform: none;
-  background: var(--surface);
-  box-shadow: none
-}
-
-.cert-icon {
-  width: 40px;
-  height: 40px;
-  margin: 0 0 22px;
-  color: var(--accent);
-  background: transparent;
-  border: 1px solid var(--line-light);
-  border-radius: 50%;
-  font-size: .95rem
-}
-
-.cert-content h3 {
-  margin-bottom: 8px;
-  color: var(--text);
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 500
-}
-
-.cert-date {
-  margin-bottom: 14px;
-  color: var(--accent);
-  font-size: .72rem;
-  font-weight: 500
-}
-
-.cert-content p {
-  margin-bottom: 20px;
-  color: var(--muted);
-  font-size: .8rem;
-  line-height: 1.7
-}
-
-.cert-link {
-  color: var(--text);
-  font-size: .75rem
-}
-
-.cert-link:hover {
-  color: var(--accent)
-}
-
-.languages-container {
-  max-width: 850px;
-  margin: 0
-}
-
-.language-item {
-  padding: 17px 0;
-  margin: 0;
-  border-bottom: 1px solid var(--line)
-}
-
-.language-item:first-child {
-  border-top: 1px solid var(--line)
-}
-
-.language-info {
-  margin-bottom: 9px
-}
-
-.language-name {
-  color: var(--text);
-  font-family: var(--font-display);
-  font-size: .9rem;
-  font-weight: 500
-}
-
-.language-level {
-  color: var(--muted);
-  font-size: .72rem
-}
-
-.language-bar {
-  height: 2px;
-  background: var(--line);
-  border-radius: 0
-}
-
-.language-progress {
-  background: var(--accent);
-  border-radius: 0
-}
 
 .contact-container {
   display: grid;
@@ -1378,5 +1270,428 @@ nav.navbar {
 
   #languages .language-level {
     max-width: 60%;
+  }
+}
+
+/* COMPACT CERTIFICATIONS SUBSECTION */
+#certifications.section {
+  padding: 0;
+  background: transparent;
+}
+
+#certifications .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+#certifications .certifications-container {
+  padding: 18px 20px;
+  background: #11120f;
+  border: 1px solid #d9ff5f;
+  border-radius: 10px;
+}
+
+#certifications .certifications-heading {
+  margin: 0 0 12px;
+  color: #d9ff5f;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+#certifications .certifications-list {
+  display: flex;
+  flex-direction: column;
+}
+
+#certifications .certification-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(242, 240, 235, 0.10);
+}
+
+#certifications .certification-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#certifications .certification-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#certifications .certification-name {
+  color: #f2f0eb;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+#certifications .certification-year {
+  color: #a09f97;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+#certifications .certification-item a {
+  display: inline-block;
+  margin-top: 3px;
+  color: #a5a49d;
+  font-size: 0.73rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#certifications .certification-item a:hover {
+  color: #d9ff5f;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  #certifications .certifications-container {
+    padding: 16px;
+  }
+}
+
+/* LANGUAGES + CERTIFICATIONS — SIDE-BY-SIDE LAYOUT */
+
+.languages-certifications-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  width: 100%;
+}
+
+.languages-certifications-grid>#languages,
+.languages-certifications-grid>#certifications {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+#languages .container,
+#certifications .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+#languages .languages-container,
+#certifications .certifications-container {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+/* Keep both cards visually consistent */
+#languages .languages-container,
+#certifications .certifications-container {
+  padding: 16px;
+  background: #11120f;
+  border: 1px solid #d9ff5f;
+  border-radius: 10px;
+}
+
+/* Stack on mobile */
+@media (max-width: 768px) {
+  .languages-certifications-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+
+/* CERTIFICATIONS — TIGHTER, BETTER-ALIGNED CARD */
+
+#certifications .certifications-container {
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  padding: 16px 18px;
+  box-sizing: border-box;
+  background: #11120f;
+  border: 1px solid #d9ff5f;
+  border-radius: 10px;
+}
+
+#certifications .certifications-heading {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+#certifications .certification-item {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(242, 240, 235, 0.10);
+}
+
+#certifications .certification-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#certifications .certification-info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+}
+
+#certifications .certification-name {
+  min-width: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+#certifications .certification-year {
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+#certifications .certification-item a {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+/* Keep the two cards aligned side by side */
+
+.languages-certifications-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: start;
+  width: min(calc(100% - 48px), var(--container));
+  margin: 0 auto;
+}
+
+#certifications,
+#languages {
+  min-width: 0;
+}
+
+#languages .languages-container {
+  max-width: none;
+}
+
+@media (max-width: 768px) {
+  .languages-certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #certifications .certifications-container {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+#languages .section-title,
+#certifications .certifications-heading {
+  height: 24px;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  color: #d9ff5f;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+#languages .container,
+#certifications .container {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+
+/* SKILLS — AI BUSINESS ANALYST POSITIONING */
+
+#skills .section-title {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  margin-bottom: 16px;
+}
+
+#skills .section-subtitle {
+  margin-bottom: 38px;
+  max-width: 620px;
+}
+
+#skills .skills-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+#skills .skill-category {
+  min-width: 0;
+  padding: 30px;
+  background: var(--bg);
+  border: 0;
+  border-radius: 0;
+  transition: background var(--transition);
+}
+
+#skills .skill-category:hover {
+  background: var(--surface);
+  transform: none;
+  box-shadow: none;
+}
+
+#skills .category-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+#skills .category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--line-light);
+  border-radius: 50%;
+}
+
+#skills .category-header h3 {
+  margin: 2px 0 6px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+#skills .category-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+#skills .skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#skills .skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  color: var(--text-soft);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.73rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background var(--transition);
+}
+
+#skills .skill-tag:hover {
+  color: var(--accent);
+  background: rgba(217, 255, 95, 0.04);
+  border-color: rgba(217, 255, 95, 0.5);
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  #skills .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  #skills .skill-category {
+    padding: 24px;
+  }
+
+  #skills .section-subtitle {
+    margin-bottom: 28px;
+  }
+}
+
+
+/* Short professional introduction */
+.intro-section {
+  padding: 65px 8%;
+  border-bottom: 1px solid var(--border-color, #292929);
+}
+
+.intro-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.intro-section .section-label {
+  display: block;
+  margin-bottom: 16px;
+  color: #d9ff5f;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.intro-section h2 {
+  max-width: 700px;
+  margin: 0 0 18px;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.25;
+  color: #f2f0eb;
+}
+
+.intro-section h2 span {
+  color: #d9ff5f;
+}
+
+.intro-section p {
+  max-width: 720px;
+  margin: 0 0 22px;
+  color: #a6a6a0;
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+.intro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #f2f0eb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.intro-link:hover {
+  color: #d9ff5f;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    padding: 45px 6%;
   }
 }
