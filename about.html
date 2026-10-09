@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="Sethulakshmi KB — AI Business Analyst, published author, and NCC Under Officer.">
+    <title>About | Sethulakshmi KB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #11120f;
+            --text: #f2f0eb;
+            --muted: #a09f97;
+            --line: rgba(242, 240, 235, .14);
+            --lime: #d9ff5f;
+            --mono: 'DM Mono', monospace;
+            --sans: 'Manrope', sans-serif;
+            --max: 1160px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--lime);
+            outline-offset: 5px
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 48px));
+            margin-inline: auto
+        }
+
+        .mono {
+            font: 11px/1.5 var(--mono);
+            text-transform: uppercase;
+            letter-spacing: .16em
+        }
+
+        .lime {
+            color: var(--lime)
+        }
+
+        .topbar {
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: -.04em
+        }
+
+        .brand span {
+            color: var(--lime)
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .nav a:hover {
+            color: var(--lime)
+        }
+
+        .nav .back {
+            color: var(--text);
+            border: 1px solid var(--line);
+            padding: 11px 15px
+        }
+
+        .nav .back:hover {
+            border-color: var(--lime);
+            color: var(--lime)
+        }
+
+        .hero {
+            min-height: 570px;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 56px;
+            align-items: center;
+            padding: 92px 0 96px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            width: 430px;
+            height: 430px;
+            right: -90px;
+            top: 45px;
+            border: 1px solid rgba(217, 255, 95, .16);
+            border-radius: 50%;
+            box-shadow: 0 0 0 48px rgba(217, 255, 95, .018), 0 0 0 96px rgba(217, 255, 95, .015)
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--lime);
+            margin-bottom: 28px
+        }
+
+        .eyebrow:before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--lime)
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(54px, 7.4vw, 100px);
+            line-height: .96;
+            letter-spacing: -.085em;
+            font-weight: 700;
+            max-width: 720px
+        }
+
+        h1 em {
+            color: var(--lime);
+            font-style: normal
+        }
+
+        .hero-tagline {
+            font-size: clamp(17px, 2vw, 22px);
+            font-weight: 600;
+            letter-spacing: -.04em;
+            margin: 30px 0 0
+        }
+
+        .hero-note {
+            color: var(--muted);
+            max-width: 440px;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-top: 18px
+        }
+
+        .hero-mark {
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative
+        }
+
+        .monogram {
+            width: min(100%, 330px);
+            aspect-ratio: 4/5;
+            border: 1px solid var(--line);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, rgba(217, 255, 95, .07), transparent 45%), #0d0e0b
+        }
+
+        .monogram:before,
+        .monogram:after {
+            content: '';
+            position: absolute;
+            background: var(--lime)
+        }
+
+        .monogram:before {
+            height: 1px;
+            width: 44px;
+            top: 24px;
+            left: 24px
+        }
+
+        .monogram:after {
+            height: 44px;
+            width: 1px;
+            top: 24px;
+            left: 24px
+        }
+
+        .initials {
+            font-size: clamp(90px, 12vw, 150px);
+            line-height: .8;
+            font-weight: 800;
+            letter-spacing: -.13em;
+            color: var(--lime);
+            padding-right: .12em
+        }
+
+        .monogram-label {
+            position: absolute;
+            left: 24px;
+            bottom: 22px;
+            color: var(--muted)
+        }
+
+        .monogram-index {
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            color: var(--muted)
+        }
+
+        .manifesto {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 40px;
+            padding: 54px 0 60px
+        }
+
+        .section-kicker {
+            color: var(--lime);
+            margin: 5px 0 0
+        }
+
+        .manifesto h2 {
+            font-size: clamp(28px, 4vw, 48px);
+            line-height: 1.12;
+            letter-spacing: -.065em;
+            margin: 0;
+            max-width: 720px
+        }
+
+        .manifesto p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+            margin: 22px 0 0
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px
+        }
+
+        .pill {
+            border: 1px solid var(--line);
+            padding: 9px 12px;
+            color: #d3d1c9;
+            font: 10px var(--mono);
+            text-transform: uppercase;
+            letter-spacing: .06em
+        }
+
+        .section {
+            padding: 92px 0
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px;
+            margin-bottom: 36px
+        }
+
+        .section-head h2 {
+            font-size: clamp(34px, 5vw, 58px);
+            letter-spacing: -.075em;
+            line-height: 1;
+            margin: 13px 0 0
+        }
+
+        .section-head p {
+            max-width: 300px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 0
+        }
+
+        .experience {
+            border-top: 1px solid var(--line)
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 190px 1fr 24px;
+            gap: 30px;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+            align-items: start
+        }
+
+        .experience-date {
+            color: var(--muted);
+            padding-top: 7px
+        }
+
+        .experience-main h3 {
+            font-size: 22px;
+            letter-spacing: -.05em;
+            margin: 0 0 6px
+        }
+
+        .experience-main .role {
+            color: var(--lime);
+            font-size: 12px;
+            margin-bottom: 16px
+        }
+
+        .experience-main p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.85;
+            max-width: 680px;
+            margin: 0
+        }
+
+        .experience-arrow {
+            color: var(--lime);
+            font-size: 20px
+        }
+
+        .duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .feature {
+            min-height: 370px;
+            padding: 30px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden
+        }
+
+        .feature:after {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(217, 255, 95, .14);
+            border-radius: 50%;
+            right: -55px;
+            top: -55px
+        }
+
+        .feature-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--muted)
+        }
+
+        .feature-number {
+            color: var(--lime)
+        }
+
+        .feature h3 {
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.03;
+            letter-spacing: -.075em;
+            margin: 64px 0 14px;
+            max-width: 420px
+        }
+
+        .feature .lead {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #d4d2ca;
+            max-width: 420px;
+            margin: 0
+        }
+
+        .feature .foot {
+            margin-top: auto;
+            padding-top: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .book-list {
+            margin-top: 24px;
+            display: grid;
+            gap: 0
+        }
+
+        .book {
+            padding: 13px 0;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 12px
+        }
+
+        .book span:last-child {
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 10px;
+            white-space: nowrap
+        }
+
+        .ncc {
+            background: var(--lime);
+            color: #11120d;
+            padding: 44px;
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 42px;
+            align-items: end
+        }
+
+        .ncc .mono {
+            color: #424b22
+        }
+
+        .ncc h2 {
+            font-size: clamp(42px, 6vw, 74px);
+            letter-spacing: -.09em;
+            line-height: .92;
+            margin: 18px 0 0
+        }
+
+        .ncc-copy {
+            border-left: 1px solid rgba(10, 10, 10, .22);
+            padding-left: 34px
+        }
+
+        .ncc-copy p {
+            font-size: 14px;
+            line-height: 1.9;
+            margin: 0;
+            max-width: 470px
+        }
+
+        .ncc-copy .ncc-note {
+            font: 10px/1.8 var(--mono);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: 22px
+        }
+
+        .closing {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            border-top: 1px solid var(--line);
+            padding: 36px 0 52px
+        }
+
+        .closing h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            letter-spacing: -.07em;
+            line-height: 1.05;
+            margin: 12px 0 0
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--lime);
+            color: #10110c;
+            padding: 15px 18px;
+            font-size: 12px;
+            font-weight: 800;
+            white-space: nowrap
+        }
+
+        .cta:hover {
+            background: #e7ff9c
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font: 10px var(--mono);
+            text-transform: uppercase;
+            letter-spacing: .08em
+        }
+
+        @media(max-width:760px) {
+            .wrap {
+                width: min(100% - 32px, var(--max))
+            }
+
+            .topbar {
+                height: 68px
+            }
+
+            .nav {
+                gap: 14px
+            }
+
+            .nav a:not(.back) {
+                display: none
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 42px;
+                padding: 74px 0 66px;
+                min-height: auto
+            }
+
+            .hero:after {
+                width: 260px;
+                height: 260px;
+                right: -130px;
+                top: 10px
+            }
+
+            .hero-mark {
+                justify-content: flex-start
+            }
+
+            .monogram {
+                width: 230px;
+                aspect-ratio: 1/1
+            }
+
+            .initials {
+                font-size: 100px
+            }
+
+            .manifesto {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 38px 0 42px
+            }
+
+            .section {
+                padding: 64px 0
+            }
+
+            .section-head {
+                display: block
+            }
+
+            .section-head p {
+                margin-top: 18px
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr 20px;
+                gap: 10px 16px
+            }
+
+            .experience-date {
+                grid-column: 1/-1;
+                padding: 0
+            }
+
+            .experience-main {
+                grid-column: 1
+            }
+
+            .experience-arrow {
+                grid-column: 2;
+                grid-row: 2
+            }
+
+            .duo {
+                grid-template-columns: 1fr
+            }
+
+            .feature {
+                min-height: 330px;
+                padding: 24px
+            }
+
+            .feature h3 {
+                margin-top: 48px
+            }
+
+            .ncc {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding: 30px 24px
+            }
+
+            .ncc-copy {
+                border-left: 0;
+                border-top: 1px solid rgba(10, 10, 10, .22);
+                padding: 24px 0 0
+            }
+
+            .closing {
+                align-items: start;
+                flex-direction: column
+            }
+
+            footer {
+                gap: 12px;
+                flex-wrap: wrap
+            }
+        }
+
+        @media(prefers-reduced-motion:no-preference) {
+            .rise {
+                animation: rise .7s both
+            }
+
+            .rise.delay {
+                animation-delay: .12s
+            }
+
+            @keyframes rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(14px)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0)
+                }
+            }
+        }
+
+        .monogram {
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .profile-photo {
+            width: 150%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            filter: grayscale(100%) contrast(1.08) brightness(.85);
+            transition: filter .4s ease, transform .5s ease;
+        }
+
+        .monogram:hover .profile-photo {
+            filter: grayscale(100%) contrast(1.12) brightness(.95);
+            transform: scale(1.03);
+        }
+
+        .experience-points {
+            margin: 18px 0;
+            padding-left: 18px;
+            color: var(--muted, #8d8b86);
+            line-height: 1.75;
+        }
+
+        .experience-points li {
+            padding-left: 5px;
+            margin-bottom: 9px;
+        }
+
+        .experience-points li::marker {
+            color: var(--accent, #d9ff5f);
+        }
+
+        .experience-points strong {
+            color: var(--text, #f2f0eb);
+            font-weight: 600;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .experience-item+.experience-item {
+            border-top: 1px solid rgba(242, 240, 235, 0.12);
+        }
+
+        /* NCC — compact section styling */
+
+        .ncc-command {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            padding: clamp(22px, 3vw, 36px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Remove the oversized decorative rings */
+        .ncc-command::before {
+            display: none;
+        }
+
+        .ncc-command-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+            font-size: 10px;
+        }
+
+        /* Smaller, balanced heading and statistic */
+        .ncc-command-hero {
+            display: grid;
+            grid-template-columns: 1.4fr .6fr;
+            gap: 32px;
+            align-items: center;
+            padding: 36px 0;
+        }
+
+        .ncc-overline {
+            color: var(--lime);
+            margin: 0 0 14px;
+        }
+
+        .ncc-command-title h2 {
+            font-size: clamp(38px, 4.5vw, 60px);
+            line-height: .98;
+            letter-spacing: -.075em;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .ncc-command-title h2 span {
+            color: var(--lime);
+        }
+
+        .ncc-intro {
+            max-width: 440px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 18px 0 0;
+        }
+
+        .ncc-stat-block {
+            border-left: 1px solid rgba(217, 255, 95, .35);
+            padding: 4px 0 4px 24px;
+        }
+
+        .ncc-stat-number {
+            display: block;
+            font-size: clamp(64px, 8vw, 94px);
+            line-height: .9;
+            letter-spacing: -.09em;
+            font-weight: 800;
+            color: var(--lime);
+        }
+
+        .ncc-stat-label {
+            display: block;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .ncc-stat-line {
+            height: 1px;
+            background: var(--line);
+            margin: 14px 0 12px;
+        }
+
+        .ncc-stat-block p {
+            color: var(--text);
+            font-size: 12px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .ncc-command-divider {
+            height: 1px;
+            background: var(--line);
+        }
+
+        /* Four points, integrated into the page */
+        .ncc-command-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .ncc-command-item {
+            padding: 22px 24px 22px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .ncc-command-item:nth-child(odd) {
+            border-right: 1px solid var(--line);
+        }
+
+        .ncc-command-item:nth-child(even) {
+            padding-left: 24px;
+            padding-right: 0;
+        }
+
+        .ncc-item-number {
+            color: var(--lime);
+            font-size: 10px;
+        }
+
+        .ncc-command-item h3 {
+            color: var(--text);
+            font-size: 19px;
+            letter-spacing: -.04em;
+            margin: 14px 0 8px;
+        }
+
+        .ncc-command-item p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+            max-width: 440px;
+            margin: 0;
+        }
+
+        .ncc-command-footer {
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px 20px;
+            flex-wrap: wrap;
+        }
+
+        .ncc-command-footer p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: -.025em;
+            line-height: 1.6;
+        }
+
+        .ncc-command-footer p span {
+            color: var(--lime);
+        }
+
+        .ncc-command-footer>span {
+            color: var(--muted);
+            font-size: 9px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 760px) {
+            .ncc-command-hero {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 28px 0;
+            }
+
+            .ncc-stat-block {
+                border-left: 0;
+                border-top: 1px solid rgba(217, 255, 95, .35);
+                padding: 18px 0 0;
+            }
+
+            .ncc-stat-number {
+                font-size: 76px;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .ncc-command {
+                padding: 20px;
+            }
+
+            .ncc-command-title h2 {
+                font-size: clamp(36px, 10vw, 48px);
+            }
+
+            .ncc-command-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ncc-command-item,
+            .ncc-command-item:nth-child(even),
+            .ncc-command-item:nth-child(odd) {
+                border-right: 0;
+                padding: 20px 0;
+            }
+
+            .ncc-command-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+    <header class="wrap topbar"><a class="brand" href="index.html" aria-label="Sethulakshmi home">S<span>.</span>KB</a>
+        <nav class="nav" aria-label="Main navigation"><a href="#experience">Experience</a><a href="#author">Author</a><a
+                href="#leadership">Leadership</a><a class="back" href="index.html">← Portfolio home</a></nav>
+    </header>
+    <main>
+        <section class="wrap hero">
+            <div class="rise">
+                <div class="eyebrow mono">About Sethulakshmi KB</div>
+                <h1>Not one<br>dimension.<br><em>Several.</em></h1>
+                <p class="hero-tagline">Business acumen. AI instinct. Execution that matters.</p>
+                <p class="hero-note">AI Business Analyst. Published author. NCC Under Officer.</p>
+            </div>
+            <div class="hero-mark rise delay" aria-label="Sethulakshmi initials monogram">
+                <div class="monogram"><span class="mono monogram-index">PROFILE / 01</span>
+                    <img class="profile-photo" src="NCC.jpg" alt="Sethulakshmi KB" />
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="wrap manifesto" aria-labelledby="point-of-view">
+            <div class="section-kicker mono">The point of view / 01</div>
+            <div>
+                <h2 id="point-of-view">Technology is the tool.<br><span class="lime">The outcome is the point.</span>
+                </h2>
+                <p>Business context first. The right questions next. AI where it creates real value. The work is not
+                    about using technology for its own sake — it is about identifying the opportunity and making the
+                    solution useful.
+                    Business problems rarely arrive as neatly defined technical requirements. They sit within processes,
+                    competing
+                    priorities, fragmented information and decisions that need to be made.
+
+                    My approach begins with understanding that bigger picture. Grounded in business analysis, computer
+                    science and data
+                    science, I look at how a business operates, where the gaps are, what the data reveals and where AI
+                    can open up a better
+                    way forward.
+
+                    With hands-on experience across AI and GenAI, I can take that understanding further — translating
+                    business needs into
+                    technical requirements, exploring solutions, building prototypes and evaluating their outputs. I
+                    bring both the
+                    perspective to recognise a meaningful business opportunity and the technical foundation to explore
+                    how it can become
+                    reality.</p>
+                <div class="pill-row"><span class="pill">AI & Business</span><span class="pill">Problem
+                        Framing</span><span class="pill">Data & Insight</span><span class="pill">Applied
+                        Solutions</span></div>
+            </div>
+        </section>
+        <section class="wrap section" id="experience">
+            <div class="section-head">
+                <div>
+                    <div class="mono lime">02 / In the field</div>
+                    <h2>Work experience<span class="lime">.</span></h2>
+                </div>
+                <p>From business requirements to AI solutions that work in practice.</p>
+            </div>
+
+            <div class="experience">
+
+                <!-- EXPERIENCE 01 -->
+                <article class="experience-item">
+                    <div class="experience-date mono">APR — AUG 2026</div>
+
+                    <div class="experience-main">
+                        <h3>Cargolux</h3>
+                        <div class="role">Digital Accelerator Intern · AI / GenAI</div>
+
+                        <p>
+                            Turning business requirements into clearer project scopes,
+                            testable AI solutions, and actionable improvements.
+                        </p>
+
+                        <ul class="experience-points">
+                            <li>
+                                Analysed PIRs across <strong>5 projects</strong> to identify
+                                recurring requirements, gaps, and project pain points.
+                            </li>
+                            <li>
+                                Clarified requirements with stakeholders and translated
+                                them into user stories and acceptance criteria.
+                            </li>
+                            <li>
+                                Evaluated AI responses using ground-truth examples;
+                                refined prompts, output schemas, and OCR workflows
+                                based on testing and feedback.
+                            </li>
+                            <li>
+                                Created BPMN diagrams, project timelines, and revenue
+                                reports to support project analysis and reporting.
+                            </li>
+                        </ul>
+
+                        <div class="experience-tags">
+                            <span class="pill">Requirements Analysis</span>
+                            <span class="pill">AI Evaluation</span>
+                            <span class="pill">Process Mapping</span>
+                            <span class="pill">Stakeholder Collaboration</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-arrow" aria-hidden="true">↗</div>
+                </article>
+
+                <!-- EXPERIENCE 02 -->
+                <article class="experience-item">
+                    <div class="experience-date mono">OCT 2025 — JAN 2026</div>
+
+                    <div class="experience-main">
+                        <h3>CMI Consulting</h3>
+                        <div class="role">AI Developer · Student Consultant</div>
+
+                        <p>
+                            Developing an AI-powered clinical decision-support
+                            prototype focused on interpretable predictions and
+                            streamlined workflows.
+                        </p>
+
+                        <ul class="experience-points">
+                            <li>
+                                Combined machine learning models and LLM capabilities
+                                to analyse <strong>73,000+ clinical cases</strong>.
+                            </li>
+                            <li>
+                                Built Python automation scripts for feature verification
+                                and model management, reducing manual setup by
+                                <strong>30%</strong>.
+                            </li>
+                            <li>
+                                Designed outputs with confidence, severity, and urgency
+                                scores to support clinical review and decision-making.
+                            </li>
+                        </ul>
+
+                        <div class="experience-tags">
+                            <span class="pill">Applied AI</span>
+                            <span class="pill">Data Analysis</span>
+                            <span class="pill">Workflow Automation</span>
+                            <span class="pill">Model Evaluation</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-arrow" aria-hidden="true">↗</div>
+                </article>
+
+            </div>
+        </section>
+        <section class="wrap section" id="author">
+            <div class="section-head">
+                <div>
+                    <div class="mono lime">03 / Beyond the brief</div>
+                    <h2>Author & books<span class="lime">.</span></h2>
+                </div>
+                <p>A creative practice beyond the analytical one.</p>
+            </div>
+            <div class="duo">
+                <article class="feature">
+                    <div class="feature-top mono"><span>Published author</span><span class="feature-number">A /
+                            03</span></div>
+                    <h3>Words have<br>their own kind<br>of precision.</h3>
+                    <p class="lead">Three published books. A voice that exists beyond dashboards, data, and technology.
+                    </p>
+                    <div class="foot"><span class="pill">Poetry</span><span class="pill">Fiction</span><span
+                            class="pill">Imagination</span></div>
+                </article>
+                <article class="feature">
+                    <div class="feature-top mono"><span>Selected works</span><span class="feature-number">BOOKS /
+                            03</span></div>
+                    <div class="book-list">
+                        <div class="book"><span><a
+                                    href="https://www.amazon.fr/-/en/Even-Oceans-had-Story-Tell/dp/B0F9LL4GTX"
+                                    target="_blank" rel="noopener noreferrer">Even the Oceans had A Story to
+                                    Tell</a></span><span>2025</span></div>
+                        <div class="book"><span><a
+                                    href="https://www.amazon.com/HEAVENLY-SILHOUETTE-voyage-thoughts-Sethulakshmi/dp/B0BR869WHT"
+                                    target="_blank" rel="noopener noreferrer">Heavenly Silhouette: The voyage of
+                                    thoughts</a></span><span>2022</span>
+                        </div>
+                        <div class="book"><span><a
+                                    href="https://www.amazon.com/THE-BLACK-EYED-SPECTACLE-Sethulakshmi/dp/B09Q5Q5Q5Qhttps://www.amazon.co.uk/Black-Eyed-Spectacle-Sethulakshmi-K/dp/1638064717"
+                                    target="_blank" rel="noopener noreferrer">The Black Eyed
+                                    Spectacle</a></span><span>2021</span></div>
+                    </div>
+                    <p class="lead" style="margin-top:22px">Different medium. Same curiosity about what moves people and
+                        ideas.</p>
+                </article>
+            </div>
+        </section>
+        <section class="wrap section" id="leadership">
+            <div class="section-head">
+                <div>
+                    <div class="mono lime">04 / Command & character</div>
+                    <h2>Leadership beyond the ordinary<span class="lime">.</span></h2>
+                </div>
+                <p>Discipline in preparation. Composure under pressure. Presence when it matters.</p>
+            </div>
+
+            <div class="ncc-command">
+                <div class="ncc-command-top">
+                    <span class="mono">NATIONAL CADET CORPS</span>
+                    <span class="mono">UNDER OFFICER / 01</span>
+                </div>
+
+                <div class="ncc-command-hero">
+                    <div class="ncc-command-title">
+                        <p class="ncc-intro">
+                            Command is more than a rank. It is the ability to hold your ground,
+                            earn respect and take responsibility when others look to you for direction.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ncc-command-divider"></div>
+
+                <div class="ncc-command-grid">
+                    <article class="ncc-command-item">
+                        <span class="ncc-item-number mono">01 / LEAD</span>
+                        <h3>Command & training</h3>
+                        <p>
+                            Led activities involving 108 cadets across first-, second- and
+                            third-year groups, while training new cadets and supporting their development.
+                        </p>
+                    </article>
+
+                    <article class="ncc-command-item">
+                        <span class="ncc-item-number mono">02 / PRESENCE</span>
+                        <h3>Own the room</h3>
+                        <p>
+                            Conducted events and programmes as Master of Ceremonies,
+                            bringing composure, clarity and authority to the stage.
+                        </p>
+                    </article>
+
+                    <article class="ncc-command-item">
+                        <span class="ncc-item-number mono">03 / EXECUTE</span>
+                        <h3>Discipline in action</h3>
+                        <p>
+                            Handled budgeting, record keeping and administrative responsibilities,
+                            balancing visible leadership with the work that keeps operations running.
+                        </p>
+                    </article>
+
+                    <article class="ncc-command-item">
+                        <span class="ncc-item-number mono">04 / REPRESENT</span>
+                        <h3>Beyond the unit</h3>
+                        <p>
+                            Selected for EBSB I and attended TSC IGC in 2022,
+                            gaining national-level exposure beyond my immediate unit.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="ncc-command-footer">
+                    <p>Quiet confidence. Clear command. <span>Responsibility without hesitation.</span></p>
+                    <span class="mono">DISCIPLINE · LEADERSHIP · SERVICE</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap closing">
+            <div>
+                <div class="mono lime">The next move</div>
+                <h2>Good questions.<br>Sharper possibilities.</h2>
+            </div><a class="cta" href="index.html#contact">Let's connect <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+    <footer class="wrap"><span>© 2026 Sethulakshmi KB</span><span>AI · Business · Perspective</span><a href="#top">Back
+            to top ↑</a></footer>
+</body>
+
+</html>
